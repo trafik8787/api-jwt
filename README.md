@@ -10,7 +10,9 @@
 >docker-compose up -d nginx node php-fpm mysql redis
 
     docker-compose exec --user=laradock workspace bash
+
     cd api-jwt
+    composer install
     artisan migrate
     artisan db:seed
 
@@ -18,7 +20,7 @@
     email: john@example.com
     pass: 123123
    
->cd ./frontend
+>cd ./frontend/UI-API
 
     npm install
     npm run dev
