@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const Redis = require('ioredis');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -14,8 +15,11 @@ const redis = new Redis({
 
 const API_URL = 'http://nginx/api/v1'; // URL Lumen API
 
+app.use(cors());
+
 app.get('/products', async (req, res) => {
     const cacheKey = 'products';
+    const token = req.headers.authorization;
 
     try {
         const cachedData = await redis.get(cacheKey);
