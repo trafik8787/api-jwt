@@ -2,19 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(ProductSeeder::class);
+
+
+        Product::factory()->count(50)->create();
+
     }
 }

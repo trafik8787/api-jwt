@@ -94,8 +94,8 @@ $app->configure('jwt');
 // $app->register(App\Providers\AppServiceProvider::class);
  $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-
-
+$app->register(Illuminate\Database\DatabaseServiceProvider::class);
+//$app->register(Illuminate\Database\Eloquent\FactoryServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
 /*
